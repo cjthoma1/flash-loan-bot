@@ -1,0 +1,42 @@
+{
+  "name": "flash-loan-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "compile": "truffle compile",
+    "migrate": "truffle migrate",
+    "migrate-reset": "truffle migrate --reset",
+    "console": "truffle console",
+    "test": "truffle test",
+    "console-ropsten": "npm run console --network ropsten",
+    "console-kovan": "npm run console --network kovan",
+    "console-mainnet": "npm run console --network mainnet",
+    "build-deploy": "npm run compile && npm run migrate-reset",
+    "build-deploy-ropsten": "npm run compile && npm run migrate-reset --network ropsten",
+    "build-deploy-kovan": "npm run compile && npm run migrate-reset --network kovan",
+    "build-deploy-mainnet": "npm run compile && npm run migrate-reset --network mainnet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjthoma1/flash-loan-bot.git"
+  },
+  "author": "Cray J. Thomas Jr.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjthoma1/flash-loan-bot/issues"
+  },
+  "homepage": "https://github.com/cjthoma1/flash-loan-bot#readme",
+  "dependencies": {
+    "ethers": "^5.0.31"
+  },
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^1.2.2",
+    "dotenv": "^8.2.0",
+    "truffle": "^5.1.67"
+  }
+}
