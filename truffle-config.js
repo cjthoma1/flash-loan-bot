@@ -41,14 +41,14 @@ module.exports = {
   networks: {
     development: {
       host: "127.0.0.1",
-      port: 8545,
+      port: 7545,
       // gas: 20000000,
       network_id: "*",
       skipDryRun: true
     },
     ropsten: {
       provider: function () {
-        new HDWalletProvider(process.env.TEST_DEPLOYMENT_ACCOUNT_KEY, "https://ropsten.infura.io/v3/" + process.env.INFURA_API_KEY)
+        return new HDWalletProvider(process.env.DEPLOYMENT_ACCOUNT_KEY, "https://ropsten.infura.io/v3/" + process.env.INFURA_API_KEY)
       },
       network_id: 3,
       gas: 5000000,
@@ -57,7 +57,7 @@ module.exports = {
     },
     kovan: {
       provider: function () {
-        new HDWalletProvider(process.env.TEST_DEPLOYMENT_ACCOUNT_KEY, "https://kovan.infura.io/v3/" + process.env.INFURA_API_KEY)
+        return new HDWalletProvider(process.env.DEPLOYMENT_ACCOUNT_KEY, "https://kovan.infura.io/v3/" + process.env.INFURA_API_KEY)
       },
       network_id: 42,
       gas: 5000000,
@@ -66,7 +66,7 @@ module.exports = {
     },
     mainnet: {
       provider: function () {
-        new HDWalletProvider(process.env.MAIN_DEPLOYMENT_ACCOUNT_KEY, "https://mainnet.infura.io/v3/" + process.env.INFURA_API_KEY)
+        return  new HDWalletProvider(process.env.DEPLOYMENT_ACCOUNT_KEY, "https://mainnet.infura.io/v3/" + process.env.INFURA_API_KEY)
       },
       network_id: 1,
       gas: 5000000,
@@ -81,16 +81,8 @@ module.exports = {
 
   // Configure your compilers
   compilers: {
-    solc: {
-      // version: "0.5.1",    // Fetch exact version from solc-bin (default: truffle's version)
-      // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
-      // settings: {          // See the solidity docs for advice about optimization and evmVersion
-      //  optimizer: {
-      //    enabled: false,
-      //    runs: 200
-      //  },
-      //  evmVersion: "byzantium"
-      // }
-    },
-  },
+		solc: {
+			version: "0.6.12",
+		},
+	},
 };

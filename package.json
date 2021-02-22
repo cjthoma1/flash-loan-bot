@@ -13,13 +13,13 @@
     "migrate-reset": "truffle migrate --reset",
     "console": "truffle console",
     "test": "truffle test",
-    "console-ropsten": "npm run console --network ropsten",
-    "console-kovan": "npm run console --network kovan",
-    "console-mainnet": "npm run console --network mainnet",
+    "console-ropsten": "truffle console --network ropsten",
+    "console-kovan": "truffle console --network kovan",
+    "console-mainnet": "truffle console --network mainnet",
     "build-deploy": "npm run compile && npm run migrate-reset",
-    "build-deploy-ropsten": "npm run compile && npm run migrate-reset --network ropsten",
-    "build-deploy-kovan": "npm run compile && npm run migrate-reset --network kovan",
-    "build-deploy-mainnet": "npm run compile && npm run migrate-reset --network mainnet"
+    "build-deploy-ropsten": "npm run compile && truffle migrate --reset --network ropsten",
+    "build-deploy-kovan": "npm run compile && truffle migrate --reset --network kovan",
+    "build-deploy-mainnet": "npm run compile && truffle migrate --reset --network mainnet"
   },
   "repository": {
     "type": "git",

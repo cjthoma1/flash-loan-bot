@@ -1,9 +1,13 @@
 // SPDX-License-Identifier: agpl-3.0
 pragma solidity 0.6.12;
 
-import { FlashLoanReceiverBase } from "FlashLoanReceiverBase.sol";
-import { ILendingPool, ILendingPoolAddressesProvider, IERC20 } from "Interfaces.sol";
-import { SafeMath } from "Libraries.sol";
+import './FlashLoanReceiverBase.sol';
+
+import '../interfaces/ILendingPool.sol';
+import '../interfaces/ILendingPoolAddressesProvider.sol';
+import '../interfaces/IERC20.sol';
+
+import '../libraries/SafeMath.sol';
 
 /** 
     !!!
@@ -50,7 +54,7 @@ contract Flashloan is FlashLoanReceiverBase {
         return true;
     }
 
-    function myFlashLoanCall() public {
+    function flashLoanAndSwapTokens() public {
         address receiverAddress = address(this);
 
         address[] memory assets = new address[](7);
@@ -81,7 +85,7 @@ contract Flashloan is FlashLoanReceiverBase {
         modes[5] = 0;
         modes[6] = 0;
 
-        address onBehalfOf = address(this);
+        address onBehalfOf = msg.sender;
         bytes memory params = "";
         uint16 referralCode = 0;
 
