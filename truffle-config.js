@@ -44,33 +44,39 @@ module.exports = {
       port: 7545,
       // gas: 20000000,
       network_id: "*",
-      skipDryRun: true
     },
     ropsten: {
-      provider: function () {
-        return new HDWalletProvider(process.env.DEPLOYMENT_ACCOUNT_KEY, "https://ropsten.infura.io/v3/" + process.env.INFURA_API_KEY)
+      provider: () => {
+        return new HDWalletProvider({ 
+          privateKeys: [process.env.DEPLOYMENT_ACCOUNT_KEY], 
+          providerOrUrl: `https://ropsten.infura.io/v3/${process.env.INFURA_API_KEY}`
+        })
       },
       network_id: 3,
       gas: 5000000,
-      gasPrice: 5000000000, // 5 Gwei
-      skipDryRun: true
+      gasPrice: 50000000000 // 50 Gwei
     },
     kovan: {
-      provider: function () {
-        return new HDWalletProvider(process.env.DEPLOYMENT_ACCOUNT_KEY, "https://kovan.infura.io/v3/" + process.env.INFURA_API_KEY)
+      provider: () => {
+        return new HDWalletProvider({ 
+          privateKeys: [process.env.DEPLOYMENT_ACCOUNT_KEY], 
+          providerOrUrl: `https://kovan.infura.io/v3/${process.env.INFURA_API_KEY}`
+        })
       },
       network_id: 42,
       gas: 5000000,
-      gasPrice: 5000000000, // 5 Gwei
-      skipDryRun: true
+      gasPrice: 50000000000 // 50 Gwei
     },
     mainnet: {
-      provider: function () {
-        return  new HDWalletProvider(process.env.DEPLOYMENT_ACCOUNT_KEY, "https://mainnet.infura.io/v3/" + process.env.INFURA_API_KEY)
+      provider: () => {
+        return  new HDWalletProvider({ 
+          privateKeys: [process.env.DEPLOYMENT_ACCOUNT_KEY], 
+          providerOrUrl: `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`
+        })
       },
       network_id: 1,
       gas: 5000000,
-      gasPrice: 5000000000 // 5 Gwei
+      gasPrice: 50000000000 // 50 Gwei
     }
   },
 
